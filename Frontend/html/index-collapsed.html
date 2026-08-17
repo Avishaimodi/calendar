@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en" class="bg-background">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#5b5bd6" />
+    <title>Flow — Calendar (panel collapsed)</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../css/styles.css" />
+  </head>
+  <body>
+    <div class="app">
+      <!-- ============ TOP BAR ============ -->
+      <header class="topbar">
+        <div class="brand">
+          <span class="brand-mark" aria-hidden="true">F</span>
+          <span>Flow</span>
+        </div>
+
+        <div class="topbar-month">
+          <button class="nav-btn" aria-label="Previous month">‹</button>
+          <h2>August 2026</h2>
+          <button class="nav-btn" aria-label="Next month">›</button>
+        </div>
+
+        <button class="btn btn-secondary" style="padding: 7px 14px">Today</button>
+
+        <div class="topbar-spacer"></div>
+
+        <nav class="segment" aria-label="Calendar view">
+          <button>Day</button>
+          <button>Week</button>
+          <button class="is-active" aria-current="true">Month</button>
+        </nav>
+
+        <div class="avatar" aria-hidden="true">JD</div>
+      </header>
+
+      <!-- ============ WORKSPACE ============ -->
+      <div class="workspace">
+        <!-- ---- Calendar ---- -->
+        <main class="main">
+          <section class="calendar" aria-label="Month calendar">
+            <div class="cal-weekdays">
+              <span>Sun</span><span>Mon</span><span>Tue</span><span>Wed</span>
+              <span>Thu</span><span>Fri</span><span>Sat</span>
+            </div>
+
+            <div class="cal-grid">
+              <!-- Row 1 (spill from July) -->
+              <div class="cal-cell is-muted"><span class="cal-daynum">26</span></div>
+              <div class="cal-cell is-muted"><span class="cal-daynum">27</span></div>
+              <div class="cal-cell is-muted"><span class="cal-daynum">28</span></div>
+              <div class="cal-cell is-muted"><span class="cal-daynum">29</span></div>
+              <div class="cal-cell is-muted"><span class="cal-daynum">30</span></div>
+              <div class="cal-cell is-muted"><span class="cal-daynum">31</span></div>
+              <div class="cal-cell">
+                <span class="cal-daynum">1</span>
+                <span class="cal-chip" style="--cat:#16a34a"><span class="dot"></span>Weekend trip</span>
+              </div>
+
+              <!-- Row 2 -->
+              <div class="cal-cell"><span class="cal-daynum">2</span></div>
+              <div class="cal-cell"><span class="cal-daynum">3</span></div>
+              <div class="cal-cell">
+                <span class="cal-daynum">4</span>
+                <span class="cal-chip" style="--cat:#3b82f6"><time>09:30</time>Team standup</span>
+              </div>
+              <div class="cal-cell"><span class="cal-daynum">5</span></div>
+              <div class="cal-cell">
+                <span class="cal-daynum">6</span>
+                <span class="cal-chip" style="--cat:#14b8a6"><time>14:00</time>Dentist</span>
+              </div>
+              <div class="cal-cell"><span class="cal-daynum">7</span></div>
+              <div class="cal-cell"><span class="cal-daynum">8</span></div>
+
+              <!-- Row 3 -->
+              <div class="cal-cell"><span class="cal-daynum">9</span></div>
+              <div class="cal-cell"><span class="cal-daynum">10</span></div>
+              <div class="cal-cell"><span class="cal-daynum">11</span></div>
+              <div class="cal-cell">
+                <span class="cal-daynum">12</span>
+                <span class="cal-chip" style="--cat:#3b82f6"><time>11:00</time>Design review</span>
+                <span class="cal-chip is-task" style="--cat:#8b5cf6"><span class="dot"></span>Ship spec</span>
+              </div>
+              <div class="cal-cell"><span class="cal-daynum">13</span></div>
+              <div class="cal-cell"><span class="cal-daynum">14</span></div>
+              <div class="cal-cell">
+                <span class="cal-daynum">15</span>
+                <span class="cal-chip" style="--cat:#16a34a"><span class="dot"></span>Farmers market</span>
+              </div>
+
+              <!-- Row 4 (contains today, Aug 17) -->
+              <div class="cal-cell"><span class="cal-daynum">16</span></div>
+              <div class="cal-cell is-today">
+                <span class="cal-daynum">17</span>
+                <span class="cal-chip" style="--cat:#3b82f6"><time>15:00</time>1:1 with Sam</span>
+                <span class="cal-chip is-task" style="--cat:#8b5cf6"><span class="dot"></span>Prep slides</span>
+              </div>
+              <div class="cal-cell">
+                <span class="cal-daynum">18</span>
+                <span class="cal-chip is-task" style="--cat:#f59e0b"><span class="dot"></span>Pay rent</span>
+              </div>
+              <div class="cal-cell"><span class="cal-daynum">19</span></div>
+              <div class="cal-cell">
+                <span class="cal-daynum">20</span>
+                <span class="cal-chip" style="--cat:#ec4899"><time>19:00</time>Book club</span>
+              </div>
+              <div class="cal-cell"><span class="cal-daynum">21</span></div>
+              <div class="cal-cell">
+                <span class="cal-daynum">22</span>
+                <span class="cal-chip" style="--cat:#14b8a6"><time>08:00</time>Gym session</span>
+              </div>
+
+              <!-- Row 5 -->
+              <div class="cal-cell"><span class="cal-daynum">23</span></div>
+              <div class="cal-cell"><span class="cal-daynum">24</span></div>
+              <div class="cal-cell">
+                <span class="cal-daynum">25</span>
+                <span class="cal-chip" style="--cat:#3b82f6"><time>10:00</time>Product launch</span>
+              </div>
+              <div class="cal-cell"><span class="cal-daynum">26</span></div>
+              <div class="cal-cell"><span class="cal-daynum">27</span></div>
+              <div class="cal-cell">
+                <span class="cal-daynum">28</span>
+                <span class="cal-chip" style="--cat:#ec4899"><time>20:00</time>Dinner w/ friends</span>
+                <span class="cal-more">+1 more</span>
+              </div>
+              <div class="cal-cell"><span class="cal-daynum">29</span></div>
+
+              <!-- Row 6 (spill to September) -->
+              <div class="cal-cell"><span class="cal-daynum">30</span></div>
+              <div class="cal-cell"><span class="cal-daynum">31</span></div>
+              <div class="cal-cell is-muted"><span class="cal-daynum">1</span></div>
+              <div class="cal-cell is-muted"><span class="cal-daynum">2</span></div>
+              <div class="cal-cell is-muted"><span class="cal-daynum">3</span></div>
+              <div class="cal-cell is-muted"><span class="cal-daynum">4</span></div>
+              <div class="cal-cell is-muted"><span class="cal-daynum">5</span></div>
+            </div>
+          </section>
+        </main>
+
+        <!-- ---- Task panel is COLLAPSED on this screen ---- -->
+        <aside class="task-panel" aria-label="Tasks" hidden>
+          <div class="panel-head">
+            <h3>Tasks</h3>
+            <a class="panel-collapse" href="index-collapsed.html" aria-label="Collapse panel" title="Collapse panel">›</a>
+          </div>
+
+          <div class="panel-scroll">
+            <!-- Daily tasks: always visible, no due date, never on calendar -->
+            <div class="panel-section-label">
+              Daily tasks <span class="count">4</span>
+            </div>
+            <div class="daily-block">
+              <div class="daily-row is-done">
+                <span class="check is-checked" aria-hidden="true">✓</span>
+                <span class="daily-label">Morning journal</span>
+                <span class="daily-dot" style="--cat:#8b5cf6"></span>
+              </div>
+              <div class="daily-row">
+                <span class="check" aria-hidden="true">✓</span>
+                <span class="daily-label">Drink water</span>
+                <span class="daily-dot" style="--cat:#14b8a6"></span>
+              </div>
+              <div class="daily-row">
+                <span class="check" aria-hidden="true">✓</span>
+                <span class="daily-label">Read 20 pages</span>
+                <span class="daily-dot" style="--cat:#0ea5e9"></span>
+              </div>
+              <div class="daily-row is-done">
+                <span class="check is-checked" aria-hidden="true">✓</span>
+                <span class="daily-label">Inbox zero</span>
+                <span class="daily-dot" style="--cat:#3b82f6"></span>
+              </div>
+            </div>
+
+            <!-- Prioritized tasks (matrix score = urgency × difficulty, high → low) -->
+            <div class="panel-section-label">
+              Prioritized <span class="count">5</span>
+            </div>
+
+            <article class="task-card is-urgent" style="--cat:#8b5cf6">
+              <div class="task-card-top">
+                <div>
+                  <div class="task-title">Finish quarterly report</div>
+                  <p class="task-desc">Compile numbers and write the summary section.</p>
+                </div>
+                <span class="score"><b>9</b><span>score</span></span>
+              </div>
+              <div class="task-meta">
+                <span class="tag"><span class="dot"></span>Deep Work</span>
+                <span class="tag tag-due">Due in 1 day</span>
+                <span class="tag tag-diff">Hard</span>
+              </div>
+            </article>
+
+            <article class="task-card is-urgent" style="--cat:#8b5cf6">
+              <div class="task-card-top">
+                <div>
+                  <div class="task-title">Prep 1:1 slides</div>
+                  <p class="task-desc">Outline talking points for the sync with Sam.</p>
+                </div>
+                <span class="score"><b>6</b><span>score</span></span>
+              </div>
+              <div class="task-meta">
+                <span class="tag"><span class="dot"></span>Deep Work</span>
+                <span class="tag tag-due">Due today</span>
+                <span class="tag tag-diff">Medium</span>
+              </div>
+            </article>
+
+            <article class="task-card is-urgent" style="--cat:#f59e0b">
+              <div class="task-card-top">
+                <div>
+                  <div class="task-title">Renew passport</div>
+                  <p class="task-desc">Bring photos and current ID to the office.</p>
+                </div>
+                <span class="score"><b>6</b><span>score</span></span>
+              </div>
+              <div class="task-meta">
+                <span class="tag"><span class="dot"></span>Errands</span>
+                <span class="tag tag-due">Due in 2 days</span>
+                <span class="tag tag-diff">Medium</span>
+              </div>
+            </article>
+
+            <article class="task-card" style="--cat:#0ea5e9">
+              <div class="task-card-top">
+                <div>
+                  <div class="task-title">Research vendors</div>
+                  <p class="task-desc">Shortlist three options for the new tooling.</p>
+                </div>
+                <span class="score"><b>4</b><span>score</span></span>
+              </div>
+              <div class="task-meta">
+                <span class="tag"><span class="dot"></span>Learning</span>
+                <span class="tag tag-due">Due Aug 24</span>
+                <span class="tag tag-diff">Medium</span>
+              </div>
+            </article>
+
+            <article class="task-card" style="--cat:#8b5cf6">
+              <div class="task-card-top">
+                <div>
+                  <div class="task-title">Plan Q4 roadmap</div>
+                  <p class="task-desc">Draft themes and rough milestones.</p>
+                </div>
+                <span class="score"><b>3</b><span>score</span></span>
+              </div>
+              <div class="task-meta">
+                <span class="tag"><span class="dot"></span>Deep Work</span>
+                <span class="tag tag-due">Due Aug 28</span>
+                <span class="tag tag-diff">Easy</span>
+              </div>
+            </article>
+
+            <!-- Completed: hidden by default, collapsed here -->
+            <button class="completed-toggle" aria-expanded="false">
+              <span class="chev">›</span> Completed <span class="count">2</span>
+            </button>
+          </div>
+        </aside>
+      </div>
+    </div>
+
+    <!-- Slide-out tab to reopen the collapsed task panel -->
+    <a class="panel-reopen" href="index.html" aria-label="Open task panel">
+      <span aria-hidden="true">‹</span>
+      <span class="vtext">Tasks</span>
+    </a>
+
+    <!-- Floating create button (sits at far corner while panel is collapsed) -->
+    <a class="fab is-far" href="create-event.html" aria-label="Create event or task">+</a>
+
+    <!-- Demo-only navigation between static screens -->
+    <nav class="demo-nav" aria-label="Design screens">
+      <a href="index.html">Main</a>
+      <a class="here" href="index-collapsed.html">Panel collapsed</a>
+      <a href="create-event.html">Create event</a>
+      <a href="create-task.html">Create task (daily)</a>
+      <a href="create-task-normal.html">Create task (normal)</a>
+      <a href="edit-event.html">Edit event</a>
+      <a href="edit-task.html">Edit task</a>
+      <a href="create-category.html">Category</a>
+      <a href="date-picker.html">Date picker</a>
+      <a href="confirm-delete.html">Delete</a>
+      <a href="reminder-popup.html">Reminders</a>
+    </nav>
+  </body>
+</html>

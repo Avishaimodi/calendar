@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" class="bg-background">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#5b5bd6" />
+    <title>Flow — Delete task</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../css/styles.css" />
+  </head>
+  <body>
+    <div class="overlay">
+      <div class="modal modal-xs" role="alertdialog" aria-modal="true" aria-labelledby="del-title" aria-describedby="del-desc">
+        <div class="confirm">
+          <span class="confirm-icon" aria-hidden="true">!</span>
+          <h2 class="confirm-title" id="del-title">Delete this task?</h2>
+          <p class="confirm-desc" id="del-desc">
+            <strong>Finish quarterly report</strong> will be permanently removed. This action can&apos;t be undone.
+          </p>
+        </div>
+
+        <div class="modal-foot confirm-foot">
+          <a class="btn btn-danger" href="index.html">Delete</a>
+          <a class="btn btn-secondary" href="index.html">Cancel</a>
+        </div>
+      </div>
+    </div>
+
+    <nav class="demo-nav" aria-label="Design screens">
+      <a href="index.html">Main</a>
+      <a href="index-collapsed.html">Panel collapsed</a>
+      <a href="create-event.html">Create event</a>
+      <a href="create-task.html">Create task (daily)</a>
+      <a href="create-task-normal.html">Create task (normal)</a>
+      <a href="edit-event.html">Edit event</a>
+      <a href="edit-task.html">Edit task</a>
+      <a href="create-category.html">Category</a>
+      <a href="date-picker.html">Date picker</a>
+      <a class="here" href="confirm-delete.html">Delete</a>
+      <a href="reminder-popup.html">Reminders</a>
+    </nav>
+  </body>
+</html>

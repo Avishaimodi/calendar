@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" class="bg-background">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#5b5bd6" />
+    <title>Flow — Reminders</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../css/styles.css" />
+  </head>
+  <body>
+    <div class="overlay">
+      <div class="modal modal-sm" role="dialog" aria-modal="true" aria-labelledby="rem-title">
+        <div class="modal-head">
+          <div>
+            <h2 id="rem-title">Reminders</h2>
+            <p class="modal-sub">Design review · Aug 20, 6:00 PM</p>
+          </div>
+          <a class="modal-close" href="edit-event.html" aria-label="Close">×</a>
+        </div>
+
+        <div class="modal-body">
+          <!-- Configured reminders -->
+          <ul class="reminder-list">
+            <li class="reminder-row">
+              <span class="reminder-lead" aria-hidden="true">🔔</span>
+              <span class="reminder-text">10 minutes before</span>
+              <button class="reminder-remove" type="button" aria-label="Remove reminder">×</button>
+            </li>
+            <li class="reminder-row">
+              <span class="reminder-lead" aria-hidden="true">🔔</span>
+              <span class="reminder-text">1 hour before</span>
+              <button class="reminder-remove" type="button" aria-label="Remove reminder">×</button>
+            </li>
+            <li class="reminder-row">
+              <span class="reminder-lead" aria-hidden="true">🔔</span>
+              <span class="reminder-text">1 day before</span>
+              <button class="reminder-remove" type="button" aria-label="Remove reminder">×</button>
+            </li>
+          </ul>
+
+          <!-- Add another -->
+          <div class="reminder-add">
+            <label class="sr-only" for="rem-when">Add reminder</label>
+            <select class="select" id="rem-when">
+              <option>At time of event</option>
+              <option>5 minutes before</option>
+              <option>30 minutes before</option>
+              <option>2 hours before</option>
+              <option>1 week before</option>
+            </select>
+            <button class="btn btn-secondary btn-sm" type="button">Add</button>
+          </div>
+        </div>
+
+        <div class="modal-foot">
+          <button class="btn btn-primary" type="submit">Save Reminders</button>
+          <a class="btn btn-secondary" href="edit-event.html">Cancel</a>
+        </div>
+      </div>
+    </div>
+
+    <nav class="demo-nav" aria-label="Design screens">
+      <a href="index.html">Main</a>
+      <a href="index-collapsed.html">Panel collapsed</a>
+      <a href="create-event.html">Create event</a>
+      <a href="create-task.html">Create task (daily)</a>
+      <a href="create-task-normal.html">Create task (normal)</a>
+      <a href="edit-event.html">Edit event</a>
+      <a href="edit-task.html">Edit task</a>
+      <a href="create-category.html">Category</a>
+      <a href="date-picker.html">Date picker</a>
+      <a href="confirm-delete.html">Delete</a>
+      <a class="here" href="reminder-popup.html">Reminders</a>
+    </nav>
+  </body>
+</html>

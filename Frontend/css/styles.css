@@ -1,0 +1,1417 @@
+
+:root {
+  /* Neutrals */
+  --bg: #f4f5f8;
+  --surface: #ffffff;
+  --surface-2: #fafbfc;
+  --surface-3: #f1f2f6;
+  --text: #1b1e24;
+  --text-muted: #6b7280;
+  --text-faint: #9aa1ac;
+  --border: #e7e9ef;
+  --border-strong: #d8dbe3;
+
+  /* Accent (indigo-violet) */
+  --accent: #5b5bd6;
+  --accent-hover: #4a4ac2;
+  --accent-soft: #eeeefb;
+  --accent-ring: rgba(91, 91, 214, 0.28);
+
+  /* Danger */
+  --danger: #e5484d;
+  --danger-hover: #d13439;
+  --danger-soft: #fdecec;
+
+  /* Warning (urgent) */
+  --urgent: #e5484d;
+  --urgent-soft: #fef2f2;
+
+  /* Type */
+  --font: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+
+  /* Radius */
+  --r-sm: 8px;
+  --r-md: 10px;
+  --r-lg: 14px;
+  --r-xl: 18px;
+  --r-pill: 999px;
+
+  /* Shadow — soft, low-contrast */
+  --shadow-xs: 0 1px 2px rgba(20, 24, 40, 0.05);
+  --shadow-sm: 0 1px 3px rgba(20, 24, 40, 0.06), 0 1px 2px rgba(20, 24, 40, 0.04);
+  --shadow-md: 0 4px 14px rgba(20, 24, 40, 0.08);
+  --shadow-lg: 0 18px 48px rgba(20, 24, 40, 0.18);
+
+  /* Spacing helpers used across screens */
+  --panel-w: 340px;
+}
+
+/* ---------------------------------------------------------------------
+   2. BASE / RESET
+   --------------------------------------------------------------------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--text);
+  font-size: 14px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+h1,
+h2,
+h3,
+h4,
+p {
+  margin: 0;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* ---------------------------------------------------------------------
+   3. LAYOUT SHELL
+   --------------------------------------------------------------------- */
+.app {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Top bar */
+.topbar {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  height: 60px;
+  padding: 0 22px;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  flex-shrink: 0;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 700;
+  font-size: 16px;
+  letter-spacing: -0.01em;
+}
+
+.brand-mark {
+  width: 26px;
+  height: 26px;
+  border-radius: 8px;
+  background: var(--accent);
+  display: grid;
+  place-items: center;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.topbar-month {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-left: 6px;
+}
+
+.topbar-month h2 {
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  min-width: 150px;
+}
+
+.nav-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: var(--r-sm);
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text-muted);
+  display: grid;
+  place-items: center;
+  font-size: 15px;
+  line-height: 1;
+  transition: background 0.15s, color 0.15s;
+}
+
+.nav-btn:hover {
+  background: var(--surface-3);
+  color: var(--text);
+}
+
+.topbar-spacer {
+  flex: 1;
+}
+
+/* View switch (segmented control) */
+.segment {
+  display: inline-flex;
+  background: var(--surface-3);
+  border-radius: var(--r-md);
+  padding: 3px;
+  gap: 2px;
+}
+
+.segment button {
+  border: none;
+  background: transparent;
+  color: var(--text-muted);
+  font-size: 13px;
+  font-weight: 500;
+  padding: 6px 14px;
+  border-radius: 7px;
+}
+
+.segment button.is-active {
+  background: var(--surface);
+  color: var(--text);
+  box-shadow: var(--shadow-xs);
+}
+
+.avatar {
+  width: 34px;
+  height: 34px;
+  border-radius: var(--r-pill);
+  background: linear-gradient(135deg, #8b5cf6, #5b5bd6);
+  color: #fff;
+  display: grid;
+  place-items: center;
+  font-weight: 600;
+  font-size: 13px;
+}
+
+/* Body split */
+.workspace {
+  flex: 1;
+  display: flex;
+  min-height: 0;
+}
+
+.main {
+  flex: 1;
+  min-width: 0;
+  padding: 22px 24px 24px;
+  overflow: auto;
+}
+
+/* ---------------------------------------------------------------------
+   4. BUTTONS
+   --------------------------------------------------------------------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: 1px solid transparent;
+  border-radius: var(--r-md);
+  padding: 9px 16px;
+  font-size: 14px;
+  font-weight: 600;
+  transition: background 0.15s, border-color 0.15s, box-shadow 0.15s, color 0.15s;
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: #fff;
+  box-shadow: var(--shadow-xs);
+}
+.btn-primary:hover {
+  background: var(--accent-hover);
+}
+
+.btn-secondary {
+  background: var(--surface);
+  color: var(--text);
+  border-color: var(--border-strong);
+}
+.btn-secondary:hover {
+  background: var(--surface-3);
+}
+
+.btn-text {
+  background: transparent;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+.btn-text:hover {
+  color: var(--text);
+  background: var(--surface-3);
+}
+
+.btn-danger {
+  background: var(--danger);
+  color: #fff;
+}
+.btn-danger:hover {
+  background: var(--danger-hover);
+}
+
+.btn-block {
+  width: 100%;
+}
+
+/* ---------------------------------------------------------------------
+   5. CALENDAR (month view)
+   --------------------------------------------------------------------- */
+.calendar {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-xl);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+.cal-weekdays {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  border-bottom: 1px solid var(--border);
+  background: var(--surface-2);
+}
+
+.cal-weekdays span {
+  padding: 11px 14px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+}
+
+.cal-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-auto-rows: 1fr;
+  flex: 1;
+}
+
+.cal-cell {
+  border-right: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 8px 8px 6px;
+  min-height: 116px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  position: relative;
+}
+
+.cal-cell:nth-child(7n) {
+  border-right: none;
+}
+
+.cal-cell.is-muted {
+  background: var(--surface-2);
+}
+.cal-cell.is-muted .cal-daynum {
+  color: var(--text-faint);
+}
+
+.cal-daynum {
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--text-muted);
+  width: 26px;
+  height: 26px;
+  display: grid;
+  place-items: center;
+  border-radius: var(--r-pill);
+}
+
+.cal-cell.is-today .cal-daynum {
+  background: var(--accent);
+  color: #fff;
+}
+
+.cal-cell.is-today {
+  background: var(--accent-soft);
+}
+
+/* Calendar item chips — color comes from inline category variable */
+.cal-chip {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 500;
+  padding: 3px 7px;
+  border-radius: 6px;
+  background: var(--surface-3);
+  color: var(--text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  border-left: 3px solid var(--cat, var(--accent));
+}
+
+.cal-chip.is-task {
+  background: transparent;
+  border: 1px dashed var(--border-strong);
+  border-left: 3px solid var(--cat, var(--accent));
+}
+
+.cal-chip .dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--cat, var(--accent));
+  flex-shrink: 0;
+}
+
+.cal-chip time {
+  color: var(--text-faint);
+  font-variant-numeric: tabular-nums;
+  font-size: 11px;
+}
+
+.cal-more {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-faint);
+  padding-left: 4px;
+}
+
+/* ---------------------------------------------------------------------
+   6. TASK PANEL
+   --------------------------------------------------------------------- */
+.task-panel {
+  width: var(--panel-w);
+  flex-shrink: 0;
+  background: var(--surface);
+  border-left: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
+.panel-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 18px 12px;
+  flex-shrink: 0;
+}
+
+.panel-head h3 {
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.panel-collapse {
+  width: 28px;
+  height: 28px;
+  border-radius: var(--r-sm);
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text-muted);
+  display: grid;
+  place-items: center;
+}
+.panel-collapse:hover {
+  background: var(--surface-3);
+  color: var(--text);
+}
+
+.panel-scroll {
+  flex: 1;
+  overflow: auto;
+  padding: 0 18px 18px;
+}
+
+.panel-section-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  margin: 16px 2px 10px;
+}
+
+.panel-section-label .count {
+  background: var(--surface-3);
+  color: var(--text-muted);
+  border-radius: var(--r-pill);
+  padding: 1px 8px;
+  font-size: 11px;
+  letter-spacing: 0;
+}
+
+/* Task card */
+.task-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  padding: 12px 13px;
+  margin-bottom: 10px;
+  box-shadow: var(--shadow-xs);
+  border-left: 3px solid var(--cat, var(--accent));
+}
+
+.task-card-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.task-title {
+  font-size: 13.5px;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.task-desc {
+  font-size: 12.5px;
+  color: var(--text-muted);
+  margin-top: 3px;
+  line-height: 1.45;
+}
+
+.task-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 3px 8px;
+  border-radius: var(--r-pill);
+  background: var(--surface-3);
+  color: var(--text-muted);
+}
+
+.tag .dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--cat, var(--accent));
+}
+
+.tag-due {
+  color: var(--text-muted);
+}
+
+.tag-diff {
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+
+/* Matrix score badge */
+.score {
+  flex-shrink: 0;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 34px;
+  padding: 3px 6px;
+  border-radius: var(--r-sm);
+  background: var(--surface-3);
+}
+.score b {
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+.score span {
+  font-size: 9px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  margin-top: 2px;
+}
+
+/* Urgent treatment (due within 3 days) */
+.task-card.is-urgent {
+  border-color: #f6c9cb;
+  border-left-color: var(--urgent);
+  background: var(--urgent-soft);
+}
+.task-card.is-urgent .tag-due {
+  background: #fde0e1;
+  color: var(--urgent);
+}
+.task-card.is-urgent .score {
+  background: #fde0e1;
+}
+.task-card.is-urgent .score span {
+  color: var(--urgent);
+}
+
+/* Daily tasks (checkbox rows, no due date) */
+.daily-block {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  padding: 6px 4px;
+}
+
+.daily-row {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  padding: 9px 11px;
+  border-radius: var(--r-md);
+}
+.daily-row + .daily-row {
+  border-top: 1px solid var(--border);
+}
+
+.check {
+  width: 18px;
+  height: 18px;
+  border-radius: 6px;
+  border: 1.5px solid var(--border-strong);
+  background: var(--surface);
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  color: transparent;
+  font-size: 11px;
+}
+.check.is-checked {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+
+.daily-label {
+  font-size: 13px;
+  font-weight: 500;
+}
+.daily-row.is-done .daily-label {
+  color: var(--text-faint);
+  text-decoration: line-through;
+}
+
+.daily-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--cat, var(--accent));
+  margin-left: auto;
+  flex-shrink: 0;
+}
+
+/* Completed collapsible */
+.completed-toggle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  border: none;
+  background: transparent;
+  padding: 10px 2px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+}
+.completed-toggle .chev {
+  transition: transform 0.15s;
+}
+
+.task-card.is-done {
+  opacity: 0.7;
+  box-shadow: none;
+  background: var(--surface-2);
+}
+.task-card.is-done .task-title {
+  text-decoration: line-through;
+  color: var(--text-muted);
+}
+
+/* ---------------------------------------------------------------------
+   7. FLOATING ACTION BUTTON
+   --------------------------------------------------------------------- */
+.fab {
+  position: fixed;
+  right: calc(var(--panel-w) + 28px);
+  bottom: 28px;
+  width: 56px;
+  height: 56px;
+  border-radius: var(--r-pill);
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  font-size: 26px;
+  line-height: 1;
+  display: grid;
+  place-items: center;
+  box-shadow: var(--shadow-lg);
+  transition: background 0.15s, transform 0.15s;
+  z-index: 40;
+}
+.fab:hover {
+  background: var(--accent-hover);
+  transform: translateY(-2px);
+}
+/* When panel is collapsed the FAB sits at the far corner */
+.fab.is-far {
+  right: 28px;
+}
+
+/* Collapsed-panel reopen tab */
+.panel-reopen {
+  position: fixed;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-right: none;
+  border-radius: var(--r-md) 0 0 var(--r-md);
+  box-shadow: var(--shadow-md);
+  padding: 14px 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-muted);
+  z-index: 30;
+}
+.panel-reopen:hover {
+  color: var(--accent);
+}
+.panel-reopen .vtext {
+  writing-mode: vertical-rl;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* ---------------------------------------------------------------------
+   8. MODAL / OVERLAY + TABS
+   --------------------------------------------------------------------- */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(23, 26, 35, 0.44);
+  backdrop-filter: blur(2px);
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  z-index: 100;
+}
+
+.modal {
+  width: 100%;
+  max-width: 460px;
+  background: var(--surface);
+  border-radius: var(--r-xl);
+  box-shadow: var(--shadow-lg);
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+
+.modal-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 22px 0;
+}
+
+.modal-head h2 {
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.modal-close {
+  width: 30px;
+  height: 30px;
+  border-radius: var(--r-sm);
+  border: none;
+  background: transparent;
+  color: var(--text-faint);
+  font-size: 18px;
+  display: grid;
+  place-items: center;
+}
+.modal-close:hover {
+  background: var(--surface-3);
+  color: var(--text);
+}
+
+/* Tabs */
+.tabs {
+  display: flex;
+  gap: 4px;
+  padding: 14px 22px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.tab {
+  border: none;
+  background: transparent;
+  padding: 9px 4px 12px;
+  margin-right: 18px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-muted);
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+}
+.tab.is-active {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
+
+.modal-body {
+  padding: 20px 22px;
+  max-height: 64vh;
+  overflow: auto;
+}
+
+.modal-foot {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 22px 20px;
+  border-top: 1px solid var(--border);
+}
+.modal-foot .btn-text {
+  margin-left: auto;
+}
+
+/* ---------------------------------------------------------------------
+   9. FORMS
+   --------------------------------------------------------------------- */
+.field {
+  margin-bottom: 16px;
+}
+.field:last-child {
+  margin-bottom: 0;
+}
+
+.field > label {
+  display: block;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 6px;
+}
+
+.field .hint {
+  font-size: 12px;
+  color: var(--text-faint);
+  font-weight: 400;
+}
+
+.input,
+.textarea,
+.select {
+  width: 100%;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--r-md);
+  background: var(--surface);
+  color: var(--text);
+  font-size: 14px;
+  font-family: inherit;
+  padding: 10px 12px;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+.input::placeholder,
+.textarea::placeholder {
+  color: var(--text-faint);
+}
+.input:focus,
+.textarea:focus,
+.select:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-ring);
+}
+
+.textarea {
+  resize: vertical;
+  min-height: 78px;
+  line-height: 1.5;
+}
+
+.select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%236b7280' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  padding-right: 36px;
+}
+
+.field-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+/* Category select shown with a leading swatch */
+.select-wrap {
+  position: relative;
+}
+.select-wrap .lead-swatch {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--cat, var(--accent));
+  pointer-events: none;
+}
+.select-wrap .select {
+  padding-left: 32px;
+}
+
+/* Field styled as a trigger that would open a picker */
+.picker-field {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--r-md);
+  background: var(--surface);
+  padding: 10px 12px;
+  font-size: 14px;
+  color: var(--text);
+  text-align: left;
+}
+.picker-field:hover {
+  border-color: var(--accent);
+}
+.picker-field .ico {
+  color: var(--text-faint);
+}
+
+/* Radio group */
+.radio-group {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.radio-card {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--r-md);
+  padding: 11px 13px;
+  cursor: pointer;
+}
+.radio-card.is-active {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+}
+.radio-dot {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 1.5px solid var(--border-strong);
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+}
+.radio-card.is-active .radio-dot {
+  border-color: var(--accent);
+}
+.radio-card.is-active .radio-dot::after {
+  content: "";
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+.radio-card .rc-title {
+  font-size: 13.5px;
+  font-weight: 600;
+}
+.radio-card .rc-sub {
+  font-size: 11.5px;
+  color: var(--text-muted);
+}
+
+/* ---------------------------------------------------------------------
+   10. DATE PICKER
+   --------------------------------------------------------------------- */
+.datepicker {
+  width: 300px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  box-shadow: var(--shadow-lg);
+  padding: 14px;
+}
+.dp-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+.dp-head strong {
+  font-size: 14px;
+  font-weight: 600;
+}
+.dp-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 2px;
+}
+.dp-grid .dow {
+  font-size: 10.5px;
+  font-weight: 600;
+  color: var(--text-faint);
+  text-align: center;
+  padding: 4px 0;
+  text-transform: uppercase;
+}
+.dp-day {
+  aspect-ratio: 1;
+  border: none;
+  background: transparent;
+  border-radius: var(--r-sm);
+  font-size: 12.5px;
+  color: var(--text);
+  display: grid;
+  place-items: center;
+}
+.dp-day:hover {
+  background: var(--surface-3);
+}
+.dp-day.is-muted {
+  color: var(--text-faint);
+}
+.dp-day.is-selected {
+  background: var(--accent);
+  color: #fff;
+  font-weight: 600;
+}
+.dp-day.is-today {
+  box-shadow: inset 0 0 0 1.5px var(--accent);
+}
+
+/* ---------------------------------------------------------------------
+   11. COLOR PICKER
+   --------------------------------------------------------------------- */
+.color-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 10px;
+}
+.color-swatch {
+  aspect-ratio: 1;
+  border-radius: var(--r-md);
+  border: 2px solid transparent;
+  cursor: pointer;
+  position: relative;
+}
+.color-swatch.is-selected {
+  border-color: var(--text);
+  box-shadow: 0 0 0 2px var(--surface) inset;
+}
+.color-swatch.is-selected::after {
+  content: "✓";
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+/* ---------------------------------------------------------------------
+   12. CONFIRMATION DIALOG
+   --------------------------------------------------------------------- */
+.confirm {
+  width: 100%;
+  max-width: 380px;
+  background: var(--surface);
+  border-radius: var(--r-xl);
+  box-shadow: var(--shadow-lg);
+  padding: 24px;
+  text-align: center;
+}
+.confirm-ico {
+  width: 46px;
+  height: 46px;
+  border-radius: var(--r-pill);
+  background: var(--danger-soft);
+  color: var(--danger);
+  display: grid;
+  place-items: center;
+  margin: 0 auto 14px;
+  font-size: 22px;
+}
+.confirm h2 {
+  font-size: 17px;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+.confirm p {
+  font-size: 13.5px;
+  color: var(--text-muted);
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+.confirm-actions {
+  display: flex;
+  gap: 10px;
+}
+.confirm-actions .btn {
+  flex: 1;
+}
+
+/* ---------------------------------------------------------------------
+   13. TOAST / REMINDER
+   --------------------------------------------------------------------- */
+.toast-stack {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  z-index: 200;
+  width: 340px;
+  max-width: calc(100vw - 40px);
+}
+.toast {
+  display: flex;
+  gap: 12px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  box-shadow: var(--shadow-md);
+  padding: 14px;
+  border-left: 3px solid var(--accent);
+}
+.toast.is-warning {
+  border-left-color: var(--urgent);
+}
+.toast-ico {
+  width: 34px;
+  height: 34px;
+  border-radius: var(--r-md);
+  background: var(--accent-soft);
+  color: var(--accent);
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+}
+.toast.is-warning .toast-ico {
+  background: var(--urgent-soft);
+  color: var(--urgent);
+}
+.toast-body {
+  flex: 1;
+  min-width: 0;
+}
+.toast-title {
+  font-size: 13.5px;
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+.toast-text {
+  font-size: 12.5px;
+  color: var(--text-muted);
+  line-height: 1.45;
+}
+.toast-close {
+  border: none;
+  background: transparent;
+  color: var(--text-faint);
+  font-size: 16px;
+  align-self: flex-start;
+}
+.toast-close:hover {
+  color: var(--text);
+}
+
+/* ---------------------------------------------------------------------
+   14. UTILITIES
+   --------------------------------------------------------------------- */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Demo helper: a small link bar to jump between the static screens.
+   Not part of the product UI — just to navigate the design set. */
+.demo-nav {
+  position: fixed;
+  bottom: 14px;
+  left: 14px;
+  z-index: 300;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  background: rgba(27, 30, 36, 0.9);
+  border-radius: var(--r-md);
+  padding: 8px 10px;
+  max-width: 60vw;
+}
+.demo-nav a {
+  font-size: 11px;
+  font-weight: 500;
+  color: #cfd2da;
+  padding: 3px 8px;
+  border-radius: 6px;
+}
+.demo-nav a:hover {
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+}
+.demo-nav a.here {
+  background: var(--accent);
+  color: #fff;
+}
+
+/* ---------------------------------------------------------------------
+   15. MODAL SIZE VARIANTS + SUBTITLE
+   --------------------------------------------------------------------- */
+.modal-sm {
+  max-width: 400px;
+}
+.modal-xs {
+  max-width: 380px;
+}
+.modal-sub {
+  margin-top: 3px;
+  font-size: 12.5px;
+  color: var(--text-muted);
+}
+.btn-sm {
+  padding: 8px 14px;
+  font-size: 13px;
+}
+
+/* ---------------------------------------------------------------------
+   16. DATE PICKER (in-modal)
+   --------------------------------------------------------------------- */
+.dp {
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  padding: 14px;
+  background: var(--surface-2);
+}
+.dp-nav {
+  width: 30px;
+  height: 30px;
+  border: none;
+  background: transparent;
+  border-radius: var(--r-sm);
+  color: var(--text-muted);
+  font-size: 18px;
+  display: grid;
+  place-items: center;
+}
+.dp-nav:hover {
+  background: var(--surface-3);
+  color: var(--text);
+}
+.dp-month {
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+.dp-dow {
+  margin-bottom: 4px;
+}
+.dp-dow span {
+  font-size: 10.5px;
+  font-weight: 600;
+  color: var(--text-faint);
+  text-align: center;
+  padding: 4px 0;
+  text-transform: uppercase;
+}
+
+/* ---------------------------------------------------------------------
+   17. CATEGORY: SWATCH GRID + PREVIEW CHIP
+   --------------------------------------------------------------------- */
+.swatch-grid {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 8px;
+}
+.swatch {
+  aspect-ratio: 1;
+  border-radius: var(--r-md);
+  border: 2px solid transparent;
+  background: var(--sw);
+  cursor: pointer;
+  position: relative;
+  transition: transform 0.12s;
+}
+.swatch:hover {
+  transform: scale(1.08);
+}
+.swatch.is-active {
+  border-color: var(--text);
+  box-shadow: 0 0 0 2px var(--surface) inset;
+}
+.swatch.is-active::after {
+  content: "✓";
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+}
+.cat-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 14px 7px 11px;
+  border-radius: var(--r-pill);
+  background: color-mix(in srgb, var(--cat) 12%, var(--surface));
+  color: color-mix(in srgb, var(--cat) 60%, var(--text));
+  font-size: 13px;
+  font-weight: 600;
+}
+.cat-chip .cat-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--cat);
+}
+
+/* ---------------------------------------------------------------------
+   18. CONFIRM DIALOG (in-modal variant)
+   --------------------------------------------------------------------- */
+.confirm {
+  padding: 26px 24px 8px;
+}
+.confirm-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--r-pill);
+  background: var(--danger-soft);
+  color: var(--danger);
+  display: grid;
+  place-items: center;
+  margin: 0 auto 14px;
+  font-size: 24px;
+  font-weight: 800;
+}
+.confirm-title {
+  font-size: 17px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+.confirm-desc {
+  font-size: 13.5px;
+  color: var(--text-muted);
+  line-height: 1.55;
+}
+.confirm-desc strong {
+  color: var(--text);
+}
+.confirm-foot .btn {
+  flex: 1;
+  justify-content: center;
+}
+
+/* ---------------------------------------------------------------------
+   19. REMINDER LIST
+   --------------------------------------------------------------------- */
+.reminder-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+.reminder-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 11px 12px;
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  background: var(--surface-2);
+}
+.reminder-lead {
+  font-size: 14px;
+  filter: grayscale(0.1);
+}
+.reminder-text {
+  flex: 1;
+  font-size: 13.5px;
+  font-weight: 500;
+  color: var(--text);
+}
+.reminder-remove {
+  width: 24px;
+  height: 24px;
+  border: none;
+  background: transparent;
+  color: var(--text-faint);
+  border-radius: var(--r-sm);
+  font-size: 16px;
+  display: grid;
+  place-items: center;
+}
+.reminder-remove:hover {
+  background: var(--danger-soft);
+  color: var(--danger);
+}
+.reminder-add {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+.reminder-add .select {
+  flex: 1;
+}

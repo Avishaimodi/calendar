@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en" class="bg-background">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#5b5bd6" />
+    <title>Flow — Pick a date</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../css/styles.css" />
+  </head>
+  <body>
+    <div class="overlay">
+      <div class="modal modal-sm" role="dialog" aria-modal="true" aria-labelledby="dp-title">
+        <div class="modal-head">
+          <h2 id="dp-title">Pick a date</h2>
+          <a class="modal-close" href="create-event.html" aria-label="Close">×</a>
+        </div>
+
+        <div class="modal-body">
+          <div class="dp">
+            <div class="dp-head">
+              <button class="dp-nav" type="button" aria-label="Previous month">‹</button>
+              <span class="dp-month">August 2026</span>
+              <button class="dp-nav" type="button" aria-label="Next month">›</button>
+            </div>
+
+            <div class="dp-grid dp-dow">
+              <span>Mo</span><span>Tu</span><span>We</span><span>Th</span><span>Fr</span><span>Sa</span><span>Su</span>
+            </div>
+
+            <div class="dp-grid">
+              <button class="dp-day is-muted" type="button">28</button>
+              <button class="dp-day is-muted" type="button">29</button>
+              <button class="dp-day is-muted" type="button">30</button>
+              <button class="dp-day is-muted" type="button">31</button>
+              <button class="dp-day" type="button">1</button>
+              <button class="dp-day" type="button">2</button>
+              <button class="dp-day" type="button">3</button>
+
+              <button class="dp-day" type="button">4</button>
+              <button class="dp-day" type="button">5</button>
+              <button class="dp-day" type="button">6</button>
+              <button class="dp-day" type="button">7</button>
+              <button class="dp-day" type="button">8</button>
+              <button class="dp-day" type="button">9</button>
+              <button class="dp-day" type="button">10</button>
+
+              <button class="dp-day" type="button">11</button>
+              <button class="dp-day" type="button">12</button>
+              <button class="dp-day" type="button">13</button>
+              <button class="dp-day" type="button">14</button>
+              <button class="dp-day" type="button">15</button>
+              <button class="dp-day" type="button">16</button>
+              <button class="dp-day is-today" type="button">17</button>
+
+              <button class="dp-day" type="button">18</button>
+              <button class="dp-day" type="button">19</button>
+              <button class="dp-day is-selected" type="button">20</button>
+              <button class="dp-day" type="button">21</button>
+              <button class="dp-day" type="button">22</button>
+              <button class="dp-day" type="button">23</button>
+              <button class="dp-day" type="button">24</button>
+
+              <button class="dp-day" type="button">25</button>
+              <button class="dp-day" type="button">26</button>
+              <button class="dp-day" type="button">27</button>
+              <button class="dp-day" type="button">28</button>
+              <button class="dp-day" type="button">29</button>
+              <button class="dp-day" type="button">30</button>
+              <button class="dp-day" type="button">31</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="modal-foot">
+          <button class="btn btn-primary" type="submit">Select Aug 20</button>
+          <a class="btn btn-secondary" href="create-event.html">Cancel</a>
+        </div>
+      </div>
+    </div>
+
+    <nav class="demo-nav" aria-label="Design screens">
+      <a href="index.html">Main</a>
+      <a href="index-collapsed.html">Panel collapsed</a>
+      <a href="create-event.html">Create event</a>
+      <a href="create-task.html">Create task (daily)</a>
+      <a href="create-task-normal.html">Create task (normal)</a>
+      <a href="edit-event.html">Edit event</a>
+      <a href="edit-task.html">Edit task</a>
+      <a href="create-category.html">Category</a>
+      <a class="here" href="date-picker.html">Date picker</a>
+      <a href="confirm-delete.html">Delete</a>
+      <a href="reminder-popup.html">Reminders</a>
+    </nav>
+  </body>
+</html>

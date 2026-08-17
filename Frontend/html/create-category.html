@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" class="bg-background">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#5b5bd6" />
+    <title>Flow — New category</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../css/styles.css" />
+  </head>
+  <body>
+    <div class="overlay">
+      <div class="modal modal-sm" role="dialog" aria-modal="true" aria-labelledby="cat-title">
+        <div class="modal-head">
+          <h2 id="cat-title">New category</h2>
+          <a class="modal-close" href="index.html" aria-label="Close">×</a>
+        </div>
+
+        <form class="modal-body">
+          <div class="field">
+            <label for="cat-name">Name</label>
+            <input class="input" id="cat-name" type="text" placeholder="e.g. Side Project" />
+          </div>
+
+          <div class="field">
+            <label>Color</label>
+            <div class="swatch-grid" role="radiogroup" aria-label="Category color">
+              <button type="button" class="swatch" style="--sw:#5b5bd6" aria-label="Indigo"></button>
+              <button type="button" class="swatch is-active" style="--sw:#8b5cf6" aria-label="Violet"></button>
+              <button type="button" class="swatch" style="--sw:#0ea5e9" aria-label="Sky"></button>
+              <button type="button" class="swatch" style="--sw:#10b981" aria-label="Emerald"></button>
+              <button type="button" class="swatch" style="--sw:#f59e0b" aria-label="Amber"></button>
+              <button type="button" class="swatch" style="--sw:#ef4444" aria-label="Red"></button>
+              <button type="button" class="swatch" style="--sw:#ec4899" aria-label="Pink"></button>
+              <button type="button" class="swatch" style="--sw:#64748b" aria-label="Slate"></button>
+            </div>
+          </div>
+
+          <!-- Live preview chip -->
+          <div class="field">
+            <label>Preview</label>
+            <span class="cat-chip" style="--cat:#8b5cf6">
+              <span class="cat-dot" aria-hidden="true"></span>
+              Side Project
+            </span>
+          </div>
+        </form>
+
+        <div class="modal-foot">
+          <button class="btn btn-primary" type="submit">Add Category</button>
+          <a class="btn btn-secondary" href="index.html">Cancel</a>
+        </div>
+      </div>
+    </div>
+
+    <nav class="demo-nav" aria-label="Design screens">
+      <a href="index.html">Main</a>
+      <a href="index-collapsed.html">Panel collapsed</a>
+      <a href="create-event.html">Create event</a>
+      <a href="create-task.html">Create task (daily)</a>
+      <a href="create-task-normal.html">Create task (normal)</a>
+      <a href="edit-event.html">Edit event</a>
+      <a href="edit-task.html">Edit task</a>
+      <a class="here" href="create-category.html">Category</a>
+      <a href="date-picker.html">Date picker</a>
+      <a href="confirm-delete.html">Delete</a>
+      <a href="reminder-popup.html">Reminders</a>
+    </nav>
+  </body>
+</html>
