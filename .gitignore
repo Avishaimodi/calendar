@@ -1,2 +1,16 @@
+# Environment variables / secrets
 .env
-db.config.js
+
+# Dependencies
+node_modules/
+
+# Logs
+*.log
+
+# OS junk
+.DS_Store
+Thumbs.db
+
+# Editor folders
+.vscode/
+.idea/
