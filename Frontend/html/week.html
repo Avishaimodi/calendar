@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en" class="bg-background">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#5b5bd6" />
+    <title>Flow — Week</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app">
+      <!-- ============ TOP BAR ============ -->
+      <header class="topbar">
+        <div class="brand">
+          <span class="brand-mark" aria-hidden="true">F</span>
+          <span>Flow</span>
+        </div>
+
+        <div class="topbar-month">
+          <button class="nav-btn" aria-label="Previous week">‹</button>
+          <h2>Aug 16 – 22, 2026</h2>
+          <button class="nav-btn" aria-label="Next week">›</button>
+        </div>
+
+        <button class="btn btn-secondary" style="padding: 7px 14px">Today</button>
+
+        <div class="topbar-spacer"></div>
+
+        <nav class="segment" aria-label="Calendar view">
+          <button>Day</button>
+          <button class="is-active" aria-current="true">Week</button>
+          <button>Month</button>
+        </nav>
+
+        <div class="avatar" aria-hidden="true">JD</div>
+      </header>
+
+      <!-- ============ WORKSPACE ============ -->
+      <div class="workspace">
+        <!-- ---- Week calendar ---- -->
+        <main class="main">
+          <section class="week" aria-label="Week calendar">
+            <!-- Day headers -->
+            <div class="wk-head">
+              <div class="wk-corner" aria-hidden="true"></div>
+              <div class="wk-dayhead">
+                <div class="wk-dow">Sun</div>
+                <div class="wk-daynum">16</div>
+              </div>
+              <div class="wk-dayhead is-today">
+                <div class="wk-dow">Mon</div>
+                <div class="wk-daynum">17</div>
+              </div>
+              <div class="wk-dayhead">
+                <div class="wk-dow">Tue</div>
+                <div class="wk-daynum">18</div>
+              </div>
+              <div class="wk-dayhead">
+                <div class="wk-dow">Wed</div>
+                <div class="wk-daynum">19</div>
+              </div>
+              <div class="wk-dayhead">
+                <div class="wk-dow">Thu</div>
+                <div class="wk-daynum">20</div>
+              </div>
+              <div class="wk-dayhead">
+                <div class="wk-dow">Fri</div>
+                <div class="wk-daynum">21</div>
+              </div>
+              <div class="wk-dayhead">
+                <div class="wk-dow">Sat</div>
+                <div class="wk-daynum">22</div>
+              </div>
+            </div>
+
+            <!-- All-day / undated row -->
+            <div class="wk-allday">
+              <div class="wk-allday-label">All-day</div>
+              <div class="wk-allday-cell"></div>
+              <div class="wk-allday-cell">
+                <span class="cal-chip is-task" style="--cat:#8b5cf6"><span class="dot"></span>Prep slides</span>
+              </div>
+              <div class="wk-allday-cell">
+                <span class="cal-chip is-task" style="--cat:#f59e0b"><span class="dot"></span>Pay rent</span>
+              </div>
+              <div class="wk-allday-cell"></div>
+              <div class="wk-allday-cell"></div>
+              <div class="wk-allday-cell"></div>
+              <div class="wk-allday-cell"></div>
+            </div>
+
+            <!-- Time grid -->
+            <div class="wk-body">
+              <div class="wk-grid">
+                <!-- Hour gutter (7 AM – 8 PM) -->
+                <div class="wk-hours">
+                  <div class="wk-hour"><span>7 AM</span></div>
+                  <div class="wk-hour"><span>8 AM</span></div>
+                  <div class="wk-hour"><span>9 AM</span></div>
+                  <div class="wk-hour"><span>10 AM</span></div>
+                  <div class="wk-hour"><span>11 AM</span></div>
+                  <div class="wk-hour"><span>12 PM</span></div>
+                  <div class="wk-hour"><span>1 PM</span></div>
+                  <div class="wk-hour"><span>2 PM</span></div>
+                  <div class="wk-hour"><span>3 PM</span></div>
+                  <div class="wk-hour"><span>4 PM</span></div>
+                  <div class="wk-hour"><span>5 PM</span></div>
+                  <div class="wk-hour"><span>6 PM</span></div>
+                  <div class="wk-hour"><span>7 PM</span></div>
+                  <div class="wk-hour"><span>8 PM</span></div>
+                </div>
+
+                <!-- Sun 16 -->
+                <div class="wk-col">
+                  <div class="wk-slot-line"></div><div class="wk-slot-line"></div>
+                  <div class="wk-slot-line"></div><div class="wk-slot-line"></div>
+                  <div class="wk-slot-line"></div><div class="wk-slot-line"></div>
+                  <div class="wk-slot-line"></div><div class="wk-slot-line"></div>
+                  <div class="wk-slot-line"></div><div class="wk-slot-line"></div>
+                  <div class="wk-slot-line"></div><div class="wk-slot-line"></div>
+                  <div class="wk-slot-line"></div><div class="wk-slot-line"></div>
+                  <div class="wk-event" style="--cat:#14b8a6; top:156px; height:52px">
+                    <div class="wk-ev-time">10:00 AM</div>
+                    <div class="wk-ev-title">Brunch w/ Mia</div>
+                  </div>
+                </div>
+
+                <!-- Mon 17 (today) -->
+                <div class="wk-col is-today">
+                  <div class="wk-slot-line"></div><div class="wk-slot-line"></div>
+                  <div class="wk-slot-line"></div><div class="wk-slot-line"></div>
+                  <div class="wk-slot-line"></div><div class="wk-slot-line"></div>
+                  <div class="wk-slot-line"></div><div class="wk-slot-line"></div>
+                  <div class="wk-slot-line"></div><div class="wk-slot-line"></div>
+                  <div class="wk-slot-line"></div><div class="wk-slot-line"></div>
+                  <div class="wk-slot-line"></div><div class="wk-slot-line"></div>
+                  <div class="wk-event" style="--cat:#3b82f6; top:130px; height:26px">
+                    <div class="wk-ev-title">Team standup · 9:30</div>
+                  </div>
+                  <div class="wk-event" style="--cat:#3b82f6; top:416px; height:52px">
+                    <div class="wk-ev-time">3:00 PM</div>
+                    <div class="wk-ev-title">1:1 with Sam</div>
+                  </div>
+                  <div class="wk-now" style="top:329px" aria-label="Current time"></div>
+                </div>
+
+                <!-- Tue 18 -->
+                <div class="wk-col">
+                  <div class="wk-slot-line"></div><div class="wk-slot-line"></div>
+                  <div class="wk-slot-line"></div><div class="wk-slot-line"></div>
+                  <div class="wk-slot-line"></div><div class="wk-slot-line"></div>
+                  <div class="wk-slot-line"></div><div class="wk-slot-line"></div>
+                  <div class="wk-slot-line"></div><div class="wk-slot-line"></div>
+                  <div class="wk-slot-line"></div><div class="wk-slot-line"></div>
+                  <div class="wk-slot-line"></div><div class="wk-slot-line"></div>
+                  <div class="wk-event" style="--cat:#14b8a6; top:312px; height:52px">
+                    <div class="wk-ev-time">1:00 PM</div>
+                    <div class="wk-ev-title">Lunch w/ Alex</div>
+                  </div>
+                </div>
+
+                <!-- Wed 19 -->
+                <div class="wk-col">
+                  <div class="wk-slot-line"></div><div class="wk-slot-line"></div>
+                  <div class="wk-slot-line"></div><div class="wk-slot-line"></div>
+                  <div class="wk-slot-line"></div><div class="wk-slot-line"></div>
+                  <div class="wk-slot-line"></div><div class="wk-slot-line"></div>
+                  <div class="wk-slot-line"></div><div class="wk-slot-line"></div>
+                  <div class="wk-slot-line"></div><div class="wk-slot-line"></div>
+                  <div class="wk-slot-line"></div><div class="wk-slot-line"></div>
+                  <div class="wk-event" style="--cat:#3b82f6; top:156px; height:78px">
+                    <div class="wk-ev-time">10:00 AM</div>
+                    <div class="wk-ev-title">Design review</div>
+                  </div>
+                  <div class="wk-event" style="--cat:#14b8a6; top:468px; height:52px">
+                    <div class="wk-ev-time">4:00 PM</div>
+                    <div class="wk-ev-title">Gym session</div>
+                  </div>
+                </div>
+
+                <!-- Thu 20 -->
+                <div class="wk-col">
+                  <div class="wk-slot-line"></div><div class="wk-slot-line"></div>
+                  <div class="wk-slot-line"></div><div class="wk-slot-line"></div>
+                  <div class="wk-slot-line"></div><div class="wk-slot-line"></div>
+                  <div class="wk-slot-line"></div><div class="wk-slot-line"></div>
+                  <div class="wk-slot-line"></div><div class="wk-slot-line"></div>
+                  <div class="wk-slot-line"></div><div class="wk-slot-line"></div>
+                  <div class="wk-slot-line"></div><div class="wk-slot-line"></div>
+                  <div class="wk-event" style="--cat:#ec4899; top:624px; height:52px">
+                    <div class="wk-ev-time">7:00 PM</div>
+                    <div class="wk-ev-title">Book club</div>
+                  </div>
+                </div>
+
+                <!-- Fri 21 -->
+                <div class="wk-col">
+                  <div class="wk-slot-line"></div><div class="wk-slot-line"></div>
+                  <div class="wk-slot-line"></div><div class="wk-slot-line"></div>
+                  <div class="wk-slot-line"></div><div class="wk-slot-line"></div>
+                  <div class="wk-slot-line"></div><div class="wk-slot-line"></div>
+                  <div class="wk-slot-line"></div><div class="wk-slot-line"></div>
+                  <div class="wk-slot-line"></div><div class="wk-slot-line"></div>
+                  <div class="wk-slot-line"></div><div class="wk-slot-line"></div>
+                  <div class="wk-event" style="--cat:#8b5cf6; top:104px; height:104px">
+                    <div class="wk-ev-time">9:00 AM</div>
+                    <div class="wk-ev-title">Focus block</div>
+                  </div>
+                </div>
+
+                <!-- Sat 22 -->
+                <div class="wk-col">
+                  <div class="wk-slot-line"></div><div class="wk-slot-line"></div>
+                  <div class="wk-slot-line"></div><div class="wk-slot-line"></div>
+                  <div class="wk-slot-line"></div><div class="wk-slot-line"></div>
+                  <div class="wk-slot-line"></div><div class="wk-slot-line"></div>
+                  <div class="wk-slot-line"></div><div class="wk-slot-line"></div>
+                  <div class="wk-slot-line"></div><div class="wk-slot-line"></div>
+                  <div class="wk-slot-line"></div><div class="wk-slot-line"></div>
+                  <div class="wk-event" style="--cat:#14b8a6; top:52px; height:52px">
+                    <div class="wk-ev-time">8:00 AM</div>
+                    <div class="wk-ev-title">Gym session</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </main>
+
+        <!-- ---- Task panel (OPEN) ---- -->
+        <aside class="task-panel" aria-label="Tasks">
+          <div class="panel-head">
+            <h3>Tasks</h3>
+            <a class="panel-collapse" href="index-collapsed.html" aria-label="Collapse panel" title="Collapse panel">›</a>
+          </div>
+
+          <div class="panel-scroll">
+            <!-- Daily tasks -->
+            <div class="panel-section-label">
+              Daily tasks <span class="count">4</span>
+            </div>
+            <div class="daily-block">
+              <div class="daily-row is-done">
+                <span class="check is-checked" aria-hidden="true">✓</span>
+                <span class="daily-label">Morning journal</span>
+                <span class="daily-dot" style="--cat:#8b5cf6"></span>
+              </div>
+              <div class="daily-row">
+                <span class="check" aria-hidden="true">✓</span>
+                <span class="daily-label">Drink water</span>
+                <span class="daily-dot" style="--cat:#14b8a6"></span>
+              </div>
+              <div class="daily-row">
+                <span class="check" aria-hidden="true">✓</span>
+                <span class="daily-label">Read 20 pages</span>
+                <span class="daily-dot" style="--cat:#0ea5e9"></span>
+              </div>
+              <div class="daily-row is-done">
+                <span class="check is-checked" aria-hidden="true">✓</span>
+                <span class="daily-label">Inbox zero</span>
+                <span class="daily-dot" style="--cat:#3b82f6"></span>
+              </div>
+            </div>
+
+            <!-- Prioritized tasks -->
+            <div class="panel-section-label">
+              Prioritized <span class="count">5</span>
+            </div>
+
+            <article class="task-card is-urgent" style="--cat:#8b5cf6">
+              <div class="task-card-top">
+                <div>
+                  <div class="task-title">Finish quarterly report</div>
+                  <p class="task-desc">Compile numbers and write the summary section.</p>
+                </div>
+                <span class="score"><b>9</b><span>score</span></span>
+              </div>
+              <div class="task-meta">
+                <span class="tag"><span class="dot"></span>Deep Work</span>
+                <span class="tag tag-due">Due in 1 day</span>
+                <span class="tag tag-diff">Hard</span>
+              </div>
+            </article>
+
+            <article class="task-card is-urgent" style="--cat:#8b5cf6">
+              <div class="task-card-top">
+                <div>
+                  <div class="task-title">Prep 1:1 slides</div>
+                  <p class="task-desc">Outline talking points for the sync with Sam.</p>
+                </div>
+                <span class="score"><b>6</b><span>score</span></span>
+              </div>
+              <div class="task-meta">
+                <span class="tag"><span class="dot"></span>Deep Work</span>
+                <span class="tag tag-due">Due today</span>
+                <span class="tag tag-diff">Medium</span>
+              </div>
+            </article>
+
+            <article class="task-card is-urgent" style="--cat:#f59e0b">
+              <div class="task-card-top">
+                <div>
+                  <div class="task-title">Renew passport</div>
+                  <p class="task-desc">Bring photos and current ID to the office.</p>
+                </div>
+                <span class="score"><b>6</b><span>score</span></span>
+              </div>
+              <div class="task-meta">
+                <span class="tag"><span class="dot"></span>Errands</span>
+                <span class="tag tag-due">Due in 2 days</span>
+                <span class="tag tag-diff">Medium</span>
+              </div>
+            </article>
+
+            <article class="task-card" style="--cat:#0ea5e9">
+              <div class="task-card-top">
+                <div>
+                  <div class="task-title">Research vendors</div>
+                  <p class="task-desc">Shortlist three options for the new tooling.</p>
+                </div>
+                <span class="score"><b>4</b><span>score</span></span>
+              </div>
+              <div class="task-meta">
+                <span class="tag"><span class="dot"></span>Learning</span>
+                <span class="tag tag-due">Due Aug 24</span>
+                <span class="tag tag-diff">Medium</span>
+              </div>
+            </article>
+
+            <article class="task-card" style="--cat:#8b5cf6">
+              <div class="task-card-top">
+                <div>
+                  <div class="task-title">Plan Q4 roadmap</div>
+                  <p class="task-desc">Draft themes and rough milestones.</p>
+                </div>
+                <span class="score"><b>3</b><span>score</span></span>
+              </div>
+              <div class="task-meta">
+                <span class="tag"><span class="dot"></span>Deep Work</span>
+                <span class="tag tag-due">Due Aug 28</span>
+                <span class="tag tag-diff">Easy</span>
+              </div>
+            </article>
+
+            <button class="completed-toggle" aria-expanded="false">
+              <span class="chev">›</span> Completed <span class="count">2</span>
+            </button>
+          </div>
+        </aside>
+      </div>
+    </div>
+
+    <!-- Floating create button -->
+    <a class="fab" href="create-event.html" aria-label="Create event or task">+</a>
+
+    <!-- Demo-only navigation between static screens -->
+    <nav class="demo-nav" aria-label="Design screens">
+      <a href="index.html">Main</a>
+      <a class="here" href="week.html">Week</a>
+      <a href="index-collapsed.html">Panel collapsed</a>
+      <a href="create-event.html">Create event</a>
+      <a href="create-task.html">Create task (daily)</a>
+      <a href="create-task-normal.html">Create task (normal)</a>
+      <a href="edit-event.html">Edit event</a>
+      <a href="edit-task.html">Edit task</a>
+      <a href="create-category.html">Category</a>
+      <a href="date-picker.html">Date picker</a>
+      <a href="confirm-delete.html">Delete</a>
+      <a href="reminder-popup.html">Reminders</a>
+    </nav>
+  </body>
+</html>
